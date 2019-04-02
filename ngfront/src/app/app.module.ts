@@ -7,12 +7,14 @@ import { TableHeaderComponent } from './table-header/table-header.component';
 import { TableRowComponent } from './table-row/table-row.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     TableHeaderComponent,
-    TableRowComponent
+    TableRowComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

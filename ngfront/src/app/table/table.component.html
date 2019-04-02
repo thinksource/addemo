@@ -1,6 +1,7 @@
 <div class="form-inline">
   <label>Search: </label>
   <select class="custom-select" style="width: auto" [(ngModel)]="stationSelected">
+        <option [ngValue]=0>all stations</option>
         <option *ngFor="let op of stations" [ngValue]="op.id">{{op.value}}</option>
   </select>
   
@@ -8,7 +9,7 @@
     <div class="form-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+               name="dp" [(ngModel)]="selectDate" ngbDatepicker #d="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
         </div>
