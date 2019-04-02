@@ -1,0 +1,20 @@
+<div class="form-inline">
+    <label>Search: &nbsp;</label>
+    <select class="custom-select" style="width: auto" [(ngModel)]="stationSelected" (change)="changeStation($event.target.value)">
+          <option [ngValue]=0>all stations</option>
+          <option *ngFor="let op of stations" [ngValue]="op.id">{{op.value}}</option>
+    </select>
+    &nbsp;&nbsp;
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                 name="dp" [(ngModel)]="selectDate" ngbDatepicker #d="ngbDatepicker"
+                 (dateSelect)="dSelect($event)" (change)="changeDate($event.target.value)">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

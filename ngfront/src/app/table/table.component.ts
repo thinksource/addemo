@@ -11,7 +11,7 @@ export class TableComponent implements OnInit {
 
   rawData = new Array<IData>();
   // rowData = new Array<IData>();
-  stations = new Array<Pair>();
+
   page = 1;
   pageSize = 20;
   collectionSize: number;
@@ -23,7 +23,7 @@ export class TableComponent implements OnInit {
       re = re.filter(item => item.idStation === this.stationSelected);
       this.collectionSize = re.length;
     }
-    if (this.selectDate) {
+    if (this.selectDate ) {
       const dateStr = `${this.selectDate.day}/${this.selectDate.month}/${this.selectDate.year}`;
       re = re.filter(item => item.date === dateStr);
       this.collectionSize = re.length;
@@ -40,14 +40,21 @@ export class TableComponent implements OnInit {
       });
       this.collectionSize = this.rowData.length;
     });
-    dsService.getStations().subscribe(res =>
-      this.stations = res.map(item => {
-        return new Pair(item.id, item.name);
-      })
-    );
+
   }
 
+  changeSelectStation(e) {
+    this.stationSelected = Number(e[0]);
+  }
 
+  changeSelectDate(e) {
+    console.log(e);
+    if (e.year > 0) {
+      this.selectDate = e;
+    } else {
+      this.selectDate = undefined;
+    }
+  }
 
   ngOnInit() {
   }
