@@ -1,0 +1,11 @@
+<td>
+  {{stationDict[colData.idStation]}}
+</td>
+<td *ngFor="let v of colData.variables">
+  {{v.value}}{{variableDict[v.id]}}
+</td>
+
+<td>
+  {{colData.date}}
+</td>
+

@@ -1,0 +1,91 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+
+paths:
+  /test:
+    x-swagger-router-controller: hello_world
+    get:
+      operationId: hello
+      tags:
+        - hello
+      parameters:
+        - name: name
+          in: query
+          description: The name of the person to whom to say hello
+          required: false
+          type: string      
+      description: return hello world
+      responses:
+        200:
+          description: Successfully return
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+  /station:
+    x-swagger-router-controller: hello_world
+    get:
+      operationId: liststation
+      tags:
+        - Station
+      summary: Read list station
+      description: Read list station
+      responses:
+        200:
+          description: Successfully read person from people data operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Station'
+  /variable:
+    x-swagger-router-controller: hello_world
+    get:
+      operationId: listvariable
+      tags:
+        - Variable
+      summary: Read the Variable
+      description: Read the Variable
+      responses:
+        200:
+          description: Successfully read Variable
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Variable'
+            
+definitions:
+  Station:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      longitude:
+        type: number
+      latitude:
+        type: number
+  
+  Variable:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      unit:
+        type: string
