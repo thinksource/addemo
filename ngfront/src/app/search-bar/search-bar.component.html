@@ -1,5 +1,5 @@
-<div class="form-inline">
-    <label>Search: &nbsp;</label>
+<div class="form-inline searchbar">
+    <label class="offset-md-2 offset-lg-3 offset-xl-4">Search: &nbsp;</label>
     <select class="custom-select" style="width: auto" [(ngModel)]="stationSelected" (change)="changeStation($event.target.value)">
           <option [ngValue]=0>all stations</option>
           <option *ngFor="let op of stations" [ngValue]="op.id">{{op.value}}</option>
@@ -17,4 +17,4 @@
         </div>
       </div>
     </form>
-  </div>
+</div>

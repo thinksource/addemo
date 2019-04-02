@@ -1,8 +1,10 @@
+<div class="text-center">
+
 <app-search-bar [(stationSelected)]="stationSelected" [(selectDate)]="selectDate" 
 (stationClick)="changeSelectStation($event)" (dateClick)="changeSelectDate($event)"
 >
 </app-search-bar>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped mypage text-center">
     
   <thead><tr app-table-header></tr></thead>
   <tbody>
@@ -21,4 +23,5 @@
     <option [ngValue]="20">20 items per page</option>
     <option [ngValue]="50">50 items per page</option>
   </select>
+</div>
 </div>
