@@ -26,3 +26,12 @@ npm install
 npm run start
 
 ```
+
+2, then You can run front end:
+
+
+```
+npm install
+npm run start
+
+```
