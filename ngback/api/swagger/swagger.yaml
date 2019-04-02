@@ -16,26 +16,29 @@ schemes:
 
 paths:
   /test:
+    # binds a127 app logic to a route
     x-swagger-router-controller: hello_world
     get:
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
       operationId: hello
-      tags:
-        - hello
       parameters:
         - name: name
           in: query
           description: The name of the person to whom to say hello
           required: false
-          type: string      
-      description: return hello world
+          type: string
       responses:
-        200:
-          description: Successfully return
+        "200":
+          description: Success
           schema:
-            type: object
-            properties:
-              message:
-                type: string
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /station:
     x-swagger-router-controller: hello_world
     get:
@@ -79,7 +82,7 @@ definitions:
         type: number
       latitude:
         type: number
-  
+
   Variable:
     type: object
     properties:
@@ -88,4 +91,17 @@ definitions:
       name:
         type: string
       unit:
+        type: string
+
+  HelloWorldResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
         type: string

@@ -6,12 +6,12 @@ describe('controllers', function() {
 
   describe('hello_world', function() {
 
-    describe('GET /hello', function() {
+    describe('GET /test', function() {
 
       it('should return a default string', function(done) {
 
         request(server)
-          .get('/hello')
+          .get('/test')
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect(200)
@@ -27,7 +27,7 @@ describe('controllers', function() {
       it('should accept a name parameter', function(done) {
 
         request(server)
-          .get('/hello')
+          .get('/test')
           .query({ name: 'Scott'})
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
