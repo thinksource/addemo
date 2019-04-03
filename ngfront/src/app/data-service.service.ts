@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Variable, Station, IData } from './dataObject';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,21 +12,21 @@ export class DataServiceService {
   constructor(private http: HttpClient) { }
 
   public getVariables(): Observable<Variable[]> {
-    const url = 'http://127.0.0.1:4000/api/variable';
+    const url = `${environment.dburl}/variable`;
     return this.http.get<Variable[]>(url).pipe(
       catchError(this.handleError<Variable[]>('getVariables', []))
     );
   }
 
   public getStations(): Observable<Station[]> {
-    const url = 'http://127.0.0.1:4000/api/station';
+    const url = `${environment.dburl}/station`;
     return this.http.get<Station[]>(url).pipe(
       catchError(this.handleError<Station[]>('getVariables', []))
     );
   }
 
   public getData(): Observable<IData[]> {
-    const url = 'https://demo4062187.mockable.io/meteo';
+    const url = `${environment.dataurl}`;
     return this.http.get<IData[]>(url).pipe(
       catchError(this.handleError<IData[]>('getVariables', []))
     );

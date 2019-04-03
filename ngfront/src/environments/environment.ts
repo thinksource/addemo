@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dburl: 'http://localhost:4000/api',
+  dataurl: 'https://demo4062187.mockable.io/meteo'
 };
 
 /*
