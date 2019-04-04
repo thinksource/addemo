@@ -22,10 +22,14 @@ export class TableComponent implements OnInit {
     if (this.stationSelected > 0) {
       re = re.filter(item => item.idStation === this.stationSelected);
       this.collectionSize = re.length;
+    } else {
+      this.collectionSize = re.length;
     }
     if (this.selectDate ) {
       const dateStr = `${this.selectDate.day}/${this.selectDate.month}/${this.selectDate.year}`;
       re = re.filter(item => item.date === dateStr);
+      this.collectionSize = re.length;
+    } else {
       this.collectionSize = re.length;
     }
     return re;
