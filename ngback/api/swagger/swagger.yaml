@@ -49,7 +49,7 @@ paths:
       description: Read list station
       responses:
         200:
-          description: Successfully read person from people data operation
+          description: Successfully read station list
           schema:
             type: array
             items:
