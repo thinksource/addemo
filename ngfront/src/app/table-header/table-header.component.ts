@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { Variable } from '../dataObject';
 
 @Component({
   selector: '[app-table-header]',

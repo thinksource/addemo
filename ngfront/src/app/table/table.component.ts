@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { Variable, IData, Pair } from '../dataObject';
+import {  IData} from '../dataObject';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -10,10 +11,9 @@ import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 export class TableComponent implements OnInit {
 
   rawData = new Array<IData>();
-  // rowData = new Array<IData>();
 
   page = 1;
-  pageSize = 20;
+  pageSize = environment.default_table_page_size;
   collectionSize: number;
   stationSelected: number;
   selectDate: NgbDate;

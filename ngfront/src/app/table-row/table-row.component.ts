@@ -1,6 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { Variable, IData } from '../dataObject';
+import { IData } from '../dataObject';
 @Component({
   selector: '[app-table-row]',
   templateUrl: './table-row.component.html',
